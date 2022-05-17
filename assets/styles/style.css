@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Poppins Bold ExtraBold Italic";
+    src:    url("/assets/library/poppins/Poppins-LightItalic.ttf") format("Light Italic"),
+            url("/assets/library/poppins/Poppins-SemiBold.ttf") format("Semi Bold"),
+            url("/assets/library/poppins/Poppins-Bold.ttf") format("Bold");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    font-family: 'Poppins', Bold;
+}

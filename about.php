@@ -1,0 +1,7 @@
+<?php
+
+include 'utilities/header.php';
+echo '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis totam minima vero nesciunt est ipsum. Temporibus, in! Veritatis cum omnis provident distinctio necessitatibus dolorem magnam quidem debitis ea inventore? Ipsa eaque nam ab modi, harum nobis tempore soluta doloribus ad optio ratione nemo quo iusto suscipit, eos blanditiis dolor molestiae reprehenderit et delectus unde, adipisci non! Culpa animi minus dolores. Earum cupiditate consequuntur quidem numquam dignissimos vero reiciendis fuga iusto, ipsa voluptatibus laboriosam neque, modi, officia ipsam? Ex nostrum quas ipsum eum quia fugit rem! Modi vel dolor velit dicta officia, dignissimos odio placeat aperiam. Dicta maiores magni quasi consectetur.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque maiores dolores numquam explicabo! Rerum illo minus nulla optio labore harum nam facere, adipisci voluptas, quibusdam magnam minima. Eum voluptatum, nulla maxime nemo molestiae hic sunt at quae saepe placeat. Explicabo molestiae omnis fugiat corporis. Optio consectetur cumque, odit ea sapiente sequi non eaque atque facere impedit ipsa doloremque provident consequuntur! Sit architecto totam vel, maxime voluptate repellendus ex quis aspernatur, aliquid explicabo doloribus autem eaque, repudiandae assumenda? Voluptatum, earum esse.</p>';
+include 'utilities/footer.php';
+
