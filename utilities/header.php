@@ -11,7 +11,7 @@ if (empty(session_id())) {
 
 $domain = 'http://localhost/phpinternship/';
 $index_page = $domain;
-$index_name = 'Accueil';
+$index_name = 'Ma Vapote Préférée';
 $about_page = $domain . 'about.php';
 $about_name = 'A propos';
 $contact_page = $domain . 'contact.php';
@@ -52,8 +52,19 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
 </head>
 <body>
     <header>
-        <h1><?php echo $title; ?></h1>
-        <nav class= "bg-primary py-2">
+        <div class="d-flex justify-content-between pt-3">
+            <a href="/"><img class="width "src="assets/img/logomvp.jpg" alt="logo"></a>
+            <h1 class="my-auto text-light"><?php echo $title; ?></h1>
+            <div class="row me-3">
+                <?php if(!isset($_SESSION['id'])): ?>
+                    <button type="button" class=" signIn btn btn-warning mb-3 mx-auto text-light">Sign in</button>
+                    <button type="button" class=" signUp btn btn-info mb-3 mx-auto"><a class="nav-link text-light" href="registerForm.php">Sign up</a></button>
+                <?php elseif(isset($_SESSION['id'])): ?>
+                    <button type="button" class="btn btn-danger"><a class="nav-link text-light" href="logout.php">Log out</a></button>
+                <?php endif; ?>
+            </div>
+        </div>
+        <nav class= "bg-primary py-2 d-flex justify-content-around">
             <ul class="nav justify-content-center">
                 <li class="nav-item"><a class="nav-link text-light 
                 <?php if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.php', $current_url) !== FALSE) echo 'disabled bg-success';?>
@@ -71,16 +82,9 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
                 <?php if (strpos($shop_page, $current_url) !== FALSE) echo 'disabled bg-success'; ?>
                 " href="shop.php">Shop</a></li>
             </ul>
-        </nav>
-
-        <section class="container">
-            <div class="row">
-                <?php if(!isset($_SESSION['id'])): ?>
-                    <button type="button" class="btn btn-warning m-3 mb-3 col-2 mx-auto"><a class="nav-link text-light" href="">Sign in</a></button>
-                    <button type="button" class="btn btn-info m-3 mb-3 col-2 mx-auto"><a class="nav-link text-light" href="registerForm.php">Sign up</a></button>
-                <?php elseif(isset($_SESSION['id'])): ?>
-                    <button type="button" class="btn btn-danger"><a class="nav-link text-light" href="">Log out</a></button>
-                <?php endif; ?>
+            <div class="login">
+              <?php include 'login.php'; ?>
             </div>
-        </section>
+        </nav>
+        
     </header>

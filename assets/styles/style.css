@@ -13,3 +13,24 @@
 h1{
     font-family: 'Poppins', Bold;
 }
+
+header{
+    background: url('../img/fumee.jpg') no-repeat fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.login{
+    display: none !important;
+}
+.login.active{
+    display: block !important;
+}
+.signIn{
+    height: 40px;
+    align-content: center;
+}
+.signUp{
+    height: 40px;
+    align-content: center;
+}

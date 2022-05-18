@@ -11,7 +11,7 @@ function register($db, $firstname, $lastname, $email, $password, $nickname){
     else{
         $insert = $db->prepare("
             INSERT INTO `user` 
-            (`firstname`, `lastname`, `nickname`, `email`, `password`) 
+            (`firstname`, `lastname`, `nickname`, `email`, `password`)
             VALUES (:firstname, :lastname, :nickname, :email, :password)
         ");
         $insert->bindValue(':firstname', $firstname, PDO::PARAM_STR);
@@ -26,8 +26,24 @@ function register($db, $firstname, $lastname, $email, $password, $nickname){
     }
 }
 
-function login($db,){
+function login($db, $email, $password){
+    $check = $db->prepare('SELECT * FROM `user` WHERE `email` = :email');
+    $check->bindValue(':email', $email, PDO::PARAM_STR);
+    $check->execute();
 
+    $resultUserExist = $check->fetchObject();
+
+    if (!$resultUserExist) {
+        return false;
+    }else {
+        $msgSuccess = "vous êtes connecté";
+        $msgError = "le mot de passe ou l'email de connexion est incorrecte";
+
+        return $result = array(
+            'data' => $resultUserExist,
+            'msg' => password_verify($password, $resultUserExist->password) ? $msgSuccess : $msgError
+        );
+    }       
 }
 
 function getUser($db,){

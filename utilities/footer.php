@@ -1,5 +1,5 @@
 
-    <footer class="bg-secondary d-flex justify-content-around align-items-center">
+    <footer class="bg-secondary d-flex justify-content-around align-items-center py-3">
         <nav>
             <ul class="list-group">
                 <a class="list-group-item text-light bg-secondary" href="#">home</a>
@@ -10,10 +10,10 @@
             </ul>
         </nav>
         <div>
-            <img class="width "src="assets/img/logomvp.jpg" alt="logo">
+            <a href="/"><img class="width "src="assets/img/logomvp.jpg" alt="logo"></a>
         </div>
         <div>
-            <ul class="list-group row">
+            <ul class="list-group row d-flex flex-column">
                 <a class="list-group-item text-light bg-secondary" href=""><i class="fa-brands fa-twitter"></i></a>
                 <a class="list-group-item text-light bg-secondary" href=""><i class="fa-brands fa-facebook"></i></a>
                 <a class="list-group-item text-light bg-secondary" href=""><i class="fa-brands fa-instagram"></i></a>
