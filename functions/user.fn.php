@@ -66,7 +66,7 @@ function setImg($db,){
 
 }
 
-function setRemoveUser($db,){
+function removeUser($db,){
 
 }
 
