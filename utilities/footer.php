@@ -1,7 +1,7 @@
 
     <footer class="bg-secondary d-flex justify-content-around align-items-center py-3">
         <nav class="col-3 ">
-            <ul class="list-group text-center">
+            <ul class="list-group text-center col-6 mx-auto">
                 <a class="list-group-item text-light bg-secondary" href="#">home</a>
                 <a class="list-group-item text-light bg-secondary" href="#">about</a>
                 <a class="list-group-item text-light bg-secondary" href="#">contact</a>

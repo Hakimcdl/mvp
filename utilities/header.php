@@ -60,7 +60,9 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
                     <button type="button" class=" signIn btn btn-warning mb-3 mx-auto text-light">Sign in</button>
                     <button type="button" class="btn btn-info mb-3 mx-auto"><a class="nav-link text-light py-0" href="registerForm.php">Sign up</a></button>
                 <?php elseif(isset($_SESSION['id'])): ?>
-                    <button type="button" class="btn btn-danger"><a class="nav-link text-light" href="logout.php">Log out</a></button>
+                  <div class="d-flex align-items-center">
+                    <a class="nav-link text-light btn btn-danger" href="logout.php">Log out</a>
+                  </div>
                 <?php endif; ?>
             </div>
         </div>
