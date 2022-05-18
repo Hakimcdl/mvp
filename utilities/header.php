@@ -53,18 +53,18 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
 <body>
     <header>
         <div class="d-flex justify-content-between pt-3">
-            <a href="/"><img class="width "src="assets/img/logomvp.jpg" alt="logo"></a>
+            <a class="ms-3 my-auto" href="/"><img class="width "src="assets/img/logomvp.jpg" alt="logo"></a>
             <h1 class="my-auto text-light"><?php echo $title; ?></h1>
             <div class="row me-3">
                 <?php if(!isset($_SESSION['id'])): ?>
                     <button type="button" class=" signIn btn btn-warning mb-3 mx-auto text-light">Sign in</button>
-                    <button type="button" class=" signUp btn btn-info mb-3 mx-auto"><a class="nav-link text-light" href="registerForm.php">Sign up</a></button>
+                    <button type="button" class="btn btn-info mb-3 mx-auto"><a class="nav-link text-light py-0" href="registerForm.php">Sign up</a></button>
                 <?php elseif(isset($_SESSION['id'])): ?>
                     <button type="button" class="btn btn-danger"><a class="nav-link text-light" href="logout.php">Log out</a></button>
                 <?php endif; ?>
             </div>
         </div>
-        <nav class= "bg-primary py-2 d-flex justify-content-around">
+        <nav class= "bg-primary mt-3 py-2 d-flex justify-content-around">
             <ul class="nav justify-content-center">
                 <li class="nav-item"><a class="nav-link text-light 
                 <?php if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.php', $current_url) !== FALSE) echo 'disabled bg-success';?>

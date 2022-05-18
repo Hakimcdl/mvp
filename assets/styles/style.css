@@ -26,11 +26,3 @@ header{
 .login.active{
     display: block !important;
 }
-.signIn{
-    height: 40px;
-    align-content: center;
-}
-.signUp{
-    height: 40px;
-    align-content: center;
-}
