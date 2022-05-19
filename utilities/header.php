@@ -48,12 +48,14 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
     <link rel="stylesheet" href="assets/styles/style.css">
     <link rel="stylesheet" href="assets/library/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/b0c1d04d83.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>Php Internship</title>
 </head>
 <body>
     <header>
         <div class="d-flex justify-content-between pt-3">
-            <a class="ms-3 my-auto" href="/"><img class="width "src="assets/img/logomvp.jpg" alt="logo"></a>
+            <a class="ms-3 my-auto" href="/"><img src="assets/img/logomvp.jpg" alt="logo"></a>
             <h1 class="my-auto text-light"><?php echo $title; ?></h1>
             <div class="row me-3">
                 <?php if(!isset($_SESSION['id'])): ?>
@@ -76,7 +78,7 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
                 " href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link text-light 
                 <?php if (strpos($contact_page, $current_url) !== FALSE) echo 'disabled bg-success'; ?>
-                " href="contact.php">Contact</a></li>
+                " href="contact.php">Contact</a></li> 
                 <li class="nav-item"><a class="nav-link text-light 
                 <?php if (strpos($account_page, $current_url) !== FALSE) echo 'disabled bg-success'; ?>
                 " href="account.php">Account</a></li>
@@ -84,9 +86,24 @@ if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.p
                 <?php if (strpos($shop_page, $current_url) !== FALSE) echo 'disabled bg-success'; ?>
                 " href="shop.php">Shop</a></li>
             </ul>
-            <div class="login">
-              <?php include 'login.php'; ?>
-            </div>
+            <?php 
+            if (!isset($_SESSION['id'])){
+              echo '<div class="login">';
+              include 'login.php'; 
+              echo '</div>';
+            }else{
+              echo '<a href="account.php"><img src="assets/img/img_avatar1.png" alt="avatar"></a>';
+            }
+              ?>
+
         </nav>
         
     </header>
+
+    <?php
+        if(isset($_GET["error"])){
+            echo "<div class='bg-danger'>
+                <p class='p-3 mb-2 text-white fw-bold text-align-center'>{$_GET["error"]}</p>
+            </div>";
+        }
+      ?>

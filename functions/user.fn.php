@@ -1,11 +1,8 @@
 <?php
 function register($db, $firstname, $lastname, $email, $password, $nickname){
     $check = $db->prepare('SELECT * FROM `user` WHERE `email` = :email OR `nickname` = :nickname');
-    $check->execute(array(
-        ':email' => $email,
-        ':nickname' => $nickname
-    ));
-    if($userExist = $check->fetch()){
+    $check = getUser($db, $email);
+    if($userExist = $check->fetchObject()){
         $msgError = "L'utilisateur est déjà éxistant";
     }
     else{
@@ -27,10 +24,7 @@ function register($db, $firstname, $lastname, $email, $password, $nickname){
 }
 
 function login($db, $email, $password){
-    $check = $db->prepare('SELECT * FROM `user` WHERE `email` = :email');
-    $check->bindValue(':email', $email, PDO::PARAM_STR);
-    $check->execute();
-
+    $check = getUser($db, $email);
     $resultUserExist = $check->fetchObject();
 
     if (!$resultUserExist) {
@@ -46,8 +40,13 @@ function login($db, $email, $password){
     }       
 }
 
-function getUser($db,){
-
+function getUser($db, $email){
+     
+    $user = $db->prepare('SELECT * FROM `user` WHERE `email` = :email');
+    $user -> bindValue(':email', $email, PDO::PARAM_STR);
+    
+    $user->execute();
+    return $user;
 }
 
 function setEmail($db,){
@@ -58,8 +57,11 @@ function setPassword($db,){
 
 }
 
-function setNickname($db,){
-
+function setNickname($db, $email, $nickname){
+    $updateNickname = $db->prepare('UPDATE `user` SET `nickname` = :nickname WHERE `email` = :email');
+    $updateNickname->bindValue(':nickname', $nickname, PDO::PARAM_STR);
+    $updateNickname->bindValue(':email', $email, PDO::PARAM_STR);
+    $updateNickname->execute();
 }
 
 function setImg($db,){
