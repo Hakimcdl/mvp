@@ -26,5 +26,5 @@ if ($msgError){
     header("Location: $lastUrl?error=$msgError");
 }else{
     $_SESSION['id'] = $id;
-    header("Location: index.html");
+    header("Location: index.php");
 }
