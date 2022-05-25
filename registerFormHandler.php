@@ -41,6 +41,10 @@ if ($msgError){
     header("Location: $lastUrl?error=$msgError");
 }else{
     $_SESSION['id'] = $db->lastInsertId();
+    $_SESSION['firstname'] = $db->lastInsertId();
+    $_SESSION['lastname'] = $db->lastInsertId();
+    $_SESSION['nickname'] = $db->lastInsertId();
+    $_SESSION['email'] = $db->lastInsertId();
     login($db, $email, $password);
     header("Location: index.php?success=$msgSuccess");
 }

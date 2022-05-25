@@ -16,12 +16,10 @@ $userVerif = $userstatement->fetchObject();
 $removeUser = ($_POST['id']);
 
 if($id = $_SESSION['id']){
-    if () {
         removeUser($db, $id);
     }else {
         $msgError = 'Le profil ne peut être supprimé';
     }
-}
 
 $lastUrl =  $_SERVER['HTTP_REFERER'];
 if ($msgError){
@@ -30,3 +28,8 @@ if ($msgError){
     $_SESSION['id'] = $id;
     header("Location: index.html");
 }
+
+// unset($_SESSION);
+// session_destroy();
+// removeUser($db, $id, $email);
+// header("location: index.php")

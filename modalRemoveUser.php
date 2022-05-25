@@ -8,13 +8,8 @@
 
       <form action="removeUserHandler.php" method="POST">
         <div class="modal-body d-flex justify-content-center">
-            <button type="button" class="btn btn-success me-3" data-bs-dismiss="modal">oui</button>
-            <button type="submit" class="btn btn-danger ms-3">non</button>
-        </div>
-
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class=" deleteYes btn btn-success me-3" data-bs-dismiss="modal">oui</button>
+            <button type="button" class=" deleteNo btn btn-danger ms-3" data-bs-dismiss="modal">non</button>
         </div>
       </form>
 
