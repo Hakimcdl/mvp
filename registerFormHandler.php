@@ -45,6 +45,7 @@ if ($msgError){
     $_SESSION['lastname'] = $db->lastInsertId();
     $_SESSION['nickname'] = $db->lastInsertId();
     $_SESSION['email'] = $db->lastInsertId();
+    $_SESSION['img'] = $db->lastInsertId();
     login($db, $email, $password);
     header("Location: index.php?success=$msgSuccess");
 }
