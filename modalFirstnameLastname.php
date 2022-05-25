@@ -8,7 +8,9 @@
 
       <form action="firstnameLastnameHandler.php" method="POST">
         <div class="modal-body">
+            <label for="inputFirstname">Prénom :</label>
             <input type="text" name="firstname" placeholder="Nouveau prénom">
+            <label for="inputLaststname">Nom :</label>
             <input type="text" name="lastname" placeholder="Nouveau nom">
         </div>
 

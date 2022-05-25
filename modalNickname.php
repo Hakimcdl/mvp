@@ -8,6 +8,7 @@
 
       <form action="nicknameHandler.php" method="POST">
         <div class="modal-body">
+            <label for="inputNickname">Pseudonyme :</label>
             <input type="text" name="nickname" placeholder="Nouveau pseudonyme">
         </div>
 

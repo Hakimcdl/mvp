@@ -8,6 +8,7 @@
 
       <form action="emailHandler.php" method="POST">
         <div class="modal-body">
+            <label for="inputEmail">Adresse email :</label>
             <input type="email" name="email" placeholder="Nouveau courriel">
             <label for="inputPassword">Mot de passe :</label>
             <input type="password" name="password">
