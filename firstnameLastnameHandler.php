@@ -8,22 +8,18 @@ $db = getPdoLink($config);
 if (empty(session_id())) {
     session_start();
 }
-//var_dump($_SESSION);
 $email = $_SESSION['email'];
-// executer getuser;
+
 $userstatement = getUser($db, $email);
 $userVerif = $userstatement->fetchObject();
-$nickname = htmlentities(trim($_POST['nickname']),ENT_QUOTES);
-// compare $email avec $userVerif->email;
-//Si cest bon
-// je donne une valeur a $nickname;
-// je vérifie si par exple le user a rentré + de 3 caractères;
-// si c/est bon j/execute setnickname;
+$firstname = htmlentities(trim($_POST['firstname']), ENT_QUOTES);
+$lastname = htmlentities(trim($_POST['lastname']), ENT_QUOTES);
+
 if($email == $userVerif->email){
-    if (strlen($nickname) > 3) {
-        setNickname($db, $email, $nickname);
+    if(strlen($firstname) >= 3 && strlen($lastname) >= 3) {
+        setFirstnameLastname($db, $email, $firstname, $lastname);
     }else {
-        $msgError = 'Le nouveau pseudonyme est trop court';
+        $msgError = 'erreur de modification du prénom et du nom';
     }
 }
 
@@ -31,7 +27,7 @@ $lastUrl =  $_SERVER['HTTP_REFERER'];
 if ($msgError){
     header("Location: $lastUrl?error=$msgError");
 }else{
-    $_SESSION['nickname'] = $nickname;
+    $_SESSION['firstname'] = $firstname;
+    $_SESSION['lastname'] = $lastname;
     header("Location: $lastUrl");
 }
-

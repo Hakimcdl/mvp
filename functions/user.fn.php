@@ -1,4 +1,5 @@
 <?php
+
 function register($db, $firstname, $lastname, $email, $password, $nickname){
     $check = $db->prepare('SELECT * FROM `user` WHERE `email` = :email OR `nickname` = :nickname');
     $check = getUser($db, $email);
@@ -41,7 +42,7 @@ function login($db, $email, $password){
 }
 
 function getUser($db, $email){
-     
+    
     $user = $db->prepare('SELECT * FROM `user` WHERE `email` = :email');
     $user -> bindValue(':email', $email, PDO::PARAM_STR);
     
@@ -49,12 +50,16 @@ function getUser($db, $email){
     return $user;
 }
 
-function setEmail($db,){
-
+function setImg($db,){
+    
 }
 
-function setPassword($db,){
-
+function setFirstnameLastname($db, $email, $firstname, $lastname){
+    $updateName = $db->prepare('UPDATE `user` SET `firstname` = :firstname, `lastname` = :lastname WHERE `email` = :email');
+    $updateName->bindValue(':firstname', $firstname, PDO::PARAM_STR);
+    $updateName->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+    $updateName->bindValue(':email', $email, PDO::PARAM_STR);
+    $updateName->execute();
 }
 
 function setNickname($db, $email, $nickname){
@@ -64,12 +69,16 @@ function setNickname($db, $email, $nickname){
     $updateNickname->execute();
 }
 
-function setImg($db,){
+function setEmail($db, $email, $id){
 
+    $updateEmail = $db->prepare('UPDATE `user` SET `email` = :email WHERE `id` = :id');
+    $updateEmail->bindValue(':email', $email, PDO::PARAM_STR);
+    $updateEmail->bindValue(':id', $id, PDO::PARAM_STR);
+    $updateEmail->execute();
 }
 
 function removeUser($db,){
-
+    
 }
 
 

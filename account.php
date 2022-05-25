@@ -2,9 +2,14 @@
 include 'utilities/header.php';
 require __DIR__ . '/functions/user.fn.php';
 
+session_start();
 $email = $_SESSION['email'];
 $userstatement = getUser($db, $email);
 $profile = $userstatement->fetchObject();
+echo $profile->email;
+echo '<pre>';
+echo $_SESSION['email'];
+var_dump ($_SESSION);
 ?>
 
 <section class="container">
@@ -17,14 +22,17 @@ $profile = $userstatement->fetchObject();
         </div>
 
         <div class="card-body">
-            <h2><?= $profile->firstname ?> <?= $profile->lastname ?></h2>
-            <h3><?= $profile->nickname ?><i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#modalNickname"></i></h3>
-            <p class="card-text"><?= $profile->email ?></p>
+            <h2><?= $profile->firstname ?> <?= $profile->lastname ?><i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#modalFirstnameLastname"></i></h2>
+            <h3><?= $profile->nickname?><i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#modalNickname"></i></h3>
+            <p class="card-text"><?= $profile->email ?><i class="fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#modalEmail"></i></p>
         </div>
     </div>
+
     <?php 
         include 'modalimg.php';
         include 'modalNickname.php'; 
+        include 'modalEmail.php';
+        include 'modalFirstnameLastname.php';
     ?>
 </section>
 
