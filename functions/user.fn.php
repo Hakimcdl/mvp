@@ -42,10 +42,8 @@ function login($db, $email, $password){
 }
 
 function getUser($db, $email){
-    
     $user = $db->prepare('SELECT * FROM `user` WHERE `email` = :email');
     $user -> bindValue(':email', $email, PDO::PARAM_STR);
-    
     $user->execute();
     return $user;
 }
@@ -70,15 +68,16 @@ function setNickname($db, $email, $nickname){
 }
 
 function setEmail($db, $email, $id){
-
     $updateEmail = $db->prepare('UPDATE `user` SET `email` = :email WHERE `id` = :id');
     $updateEmail->bindValue(':email', $email, PDO::PARAM_STR);
     $updateEmail->bindValue(':id', $id, PDO::PARAM_STR);
     $updateEmail->execute();
 }
 
-function removeUser($db,){
-    
+function removeUser($db, $id){
+    $removeUser = $db->prepare('DELETE FROM `user` WHERE `id` = :id');
+    $removeUser->bindValue(':id', $id, PDO::PARAM_STR);
+    $removeUser->execute();
 }
 
 
