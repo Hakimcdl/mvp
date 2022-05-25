@@ -25,6 +25,6 @@ $lastUrl =  $_SERVER['HTTP_REFERER'];
 if ($msgError){
     header("Location: $lastUrl?error=$msgError");
 }else{
-    $_SESSION['id'] = $id;
+    session_destroy();
     header("Location: index.php");
 }

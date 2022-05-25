@@ -2,14 +2,16 @@
 include 'utilities/header.php';
 require __DIR__ . '/functions/user.fn.php';
 
-session_start();
+if (empty(session_id())) {
+    session_start();
+}
 $email = $_SESSION['email'];
 $userstatement = getUser($db, $email);
 $profile = $userstatement->fetchObject();
-echo $profile->email;
+//echo $profile->email;
 echo '<pre>';
-echo $_SESSION['email'];
-var_dump ($_SESSION);
+//echo $_SESSION['email'];
+//var_dump ($_SESSION);
 ?>
 
 <section class="container">
